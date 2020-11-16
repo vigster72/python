@@ -8,7 +8,7 @@ end_time = endtime.strftime('%Y-%m-%d %H:%M:%S')
 dummy_file = "/home/netscout/Downloads/all-conv.xml"
 user_name = 'jvigliotti'
 user_pass = 'Bat#cave0920'
-server_ip = '172.23.246.11'
+server_ip = '172.23.246.3'
 server_port = '443'
 #This will open xml file to write xml field data
 file = open(dummy_file,"w") #Creates the Api import file
@@ -78,3 +78,7 @@ headers = {
 
 data = open(dummy_file)
 response = requests.post('https://'+server_ip+'/dbonequerydata/query', headers=headers, data=data, verify=False, auth=('user_name', 'user_pass'))
+# ensure we notice bad responses
+#response.raise_for_status()
+# ensure we notice bad responses
+#print(response.text)
